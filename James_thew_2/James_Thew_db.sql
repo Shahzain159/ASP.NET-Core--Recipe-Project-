@@ -118,3 +118,10 @@ CREATE TABLE Comments (
   FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID)
 );
 
+create table tbl_admin(
+a_id int identity primary key,
+a_name varchar(255),
+a_email varchar(255),
+a_password varchar(255)
+
+)
