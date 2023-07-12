@@ -44,31 +44,41 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
+
+                                    @{
+                                        if (TempData.ContainsKey("login_error"))
+                                        {
+                                            <div class="text-center">
+                                                <h1 class="h4 text-danger mb-4">@TempData["login_error"]</h1>
+                                            </div>
+                                        }
+                                    }
+
                                     <form class="user" method="post">
-                                            <div class="form-group">
-                                                <input type="email" asp-for="AdminEmail"  class="form-control form-control-user"
-                                                       id="exampleInputEmail" aria-describedby="emailHelp"
-                                                       placeholder="Enter Email Address...">
-                                                <span class="text-danger" asp-validation-for="AdminEmail"></span>
+                                        <div class="form-group">
+                                            <input type="email" asp-for="AEmail" class="form-control form-control-user"
+                                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                                   placeholder="Enter Email Address...">
+                                            <span class="text-danger" asp-validation-for="AEmail"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" asp-for="APassword" class="form-control form-control-user"
+                                                   id="exampleInputPassword" placeholder="Password">
+                                            <span class="text-danger" asp-validation-for="APassword"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">
+                                                    Remember
+                                                    Me
+                                                </label>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="password" asp-for="AdminPassword"  class="form-control form-control-user"
-                                                       id="exampleInputPassword" placeholder="Password">
-                                                <span class="text-danger" asp-validation-for="AdminPassword"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">
-                                                        Remember
-                                                        Me
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <input type="submit" href="index.html" class="btn btn-primary btn-user btn-block" value="Login">
+                                        </div>
+                                        <input type="submit" href="index.html" class="btn btn-primary btn-user btn-block" value="Login">
 
 
-                                        </form>
+                                    </form>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
