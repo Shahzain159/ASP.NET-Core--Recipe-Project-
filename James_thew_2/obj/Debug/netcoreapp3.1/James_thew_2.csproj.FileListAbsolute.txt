@@ -776,3 +776,4 @@ C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\n
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\James_thew_2.dll
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\James_thew_2.pdb
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\James_thew_2.genruntimeconfig.cache
+C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\Razor\Views\Recipe_Admin\Categories.cshtml.g.cs

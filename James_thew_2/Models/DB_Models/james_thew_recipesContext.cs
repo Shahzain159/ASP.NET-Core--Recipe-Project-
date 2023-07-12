@@ -62,7 +62,6 @@ namespace James_thew_2.Models.DB_Models
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.Property(e => e.CategoryId)
-                    .ValueGeneratedNever()
                     .HasColumnName("CategoryID");
 
                 entity.Property(e => e.CategoryName)

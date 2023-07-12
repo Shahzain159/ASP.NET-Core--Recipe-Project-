@@ -18,7 +18,7 @@ CREATE TABLE Users (
 
 --Recipes Categories
 CREATE TABLE Categories (
-  CategoryID INT PRIMARY KEY,
+  CategoryID INT IDENTITY(3001,1) PRIMARY KEY,
   CategoryName VARCHAR(255)
 );
 

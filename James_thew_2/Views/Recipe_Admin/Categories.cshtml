@@ -1,0 +1,75 @@
+﻿@model James_thew_2.Models.DB_Models.Category
+@{
+    Layout = "admin_layout";
+
+
+    var cats = (List<James_thew_2.Models.DB_Models.Category>)ViewBag.cat_data;
+
+}
+
+@{ if (TempData.ContainsKey("cat_inserted"))
+    {
+        <div class="alert alert-success w-75 mt-1 mb-2" id="message">
+            @TempData["cat_inserted"]
+        </div>
+    }
+}
+
+
+@{ if (TempData.ContainsKey("cat_already"))
+    {
+        <div class="text-danger">
+            @TempData["cat_already"]
+        </div>
+    }
+}
+
+<form method="post" asp-action="Categories">
+    <label asp-for="CategoryName"></label>
+    <input asp-for="CategoryName" class="form-control form-control-lg " />
+    <span class="text-danger" asp-validation-for="CategoryName"></span>
+
+    <br />
+    <input type="submit" class="btn btn-primary mt-2" />
+</form>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Categories Data</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+
+                    @{
+                        foreach (var c in cats)
+                        {
+                            <tr>
+                                <td>@c.CategoryName</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#message').delay(3000).fadeOut();
+    });
+
+</script>
