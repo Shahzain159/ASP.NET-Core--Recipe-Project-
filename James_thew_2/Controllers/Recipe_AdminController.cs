@@ -92,11 +92,36 @@ namespace James_thew_2.Controllers
         }
         public IActionResult Ingredients()
         {
+            ViewBag.RecipeId = db.Recipes
+                .Select(c => new SelectListItem() { Text = c.RecipeTitle, Value = c.RecipeId.ToString() })
+                .ToList();
+            ViewBag.i_data = db.Ingredients.Include(x => x.Recipe).ToList();
             return View();
+        }
+        [HttpPost]
+        public IActionResult Ingredients(Ingredient i)
+        {
+            db.Ingredients.Add(i);
+            db.SaveChanges();
+            TempData["ing_succ"] = "Ingredients Added";
+            return RedirectToAction("Ingredients");
         }
         public IActionResult Steps()
         {
+            ViewBag.RecipeId = db.Steps
+                .Select(c => new SelectListItem() { Text = c.Recipe.RecipeTitle, Value = c.RecipeId.ToString() })
+                .ToList();
+
+            ViewBag.s_data = db.Steps.Include(x => x.Recipe).ToList();
             return View();
+        }
+        [HttpPost]
+        public IActionResult Steps(Step s)
+        {
+            db.Steps.Add(s);
+            db.SaveChanges();
+            TempData["s_succ"] = "Step Added";
+            return RedirectToAction("Steps");
         }
     }
 }

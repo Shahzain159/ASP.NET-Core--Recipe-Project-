@@ -1,0 +1,81 @@
+﻿@model James_thew_2.Models.DB_Models.Step
+
+@{
+    ViewData["Title"] = "Steps";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+
+    var ing = (List<James_thew_2.Models.DB_Models.Step>)ViewBag.s_data;
+
+}
+
+@{
+    if (TempData.ContainsKey("s_succ"))
+    {
+        <div class="alert alert-success" id="message">
+            @TempData["s_succ"]
+        </div>
+    }
+}
+<h1>Steps</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Steps">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RecipeId" class="control-label"></label>
+                <select asp-for="RecipeId" class="form-control" asp-items="ViewBag.RecipeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StepNumber" class="control-label"></label>
+                <input asp-for="StepNumber" class="form-control" />
+                <span asp-validation-for="StepNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Steps Data</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Recipe</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @{
+                        foreach (var c in ing)
+                        {
+                            <tr>
+                                <td>@c.StepNumber</td>
+                                <td>@c.Description'</td>
+                                <td>@c.Recipe.RecipeTitle</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
