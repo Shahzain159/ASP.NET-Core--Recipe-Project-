@@ -822,3 +822,4 @@ C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\bin\Debug\n
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\Razor\Views\Recipe_Admin\Recipes.cshtml.g.cs
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\Razor\Views\Recipe_Admin\Ingredients.cshtml.g.cs
 C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\Razor\Views\Recipe_Admin\Steps.cshtml.g.cs
+C:\Users\shahzain\Desktop\ASP.NET-Core--Recipe-Project-\James_thew_2\obj\Debug\netcoreapp3.1\Razor\Views\Recipe_Admin\del_cat.cshtml.g.cs

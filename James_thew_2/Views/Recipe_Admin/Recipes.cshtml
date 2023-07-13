@@ -75,6 +75,7 @@
                         <th>Image</th>
                         <th>Free or MemberShip</th>
                         <th>Category</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -99,6 +100,9 @@
                                 </td>
 
                                 <td>@c.Category.CategoryName</td>
+                                <td>
+                                    <a asp-action="del_cat" class="btn btn-danger" asp-route-data="@c.RecipeId">Delete</a>
+                                </td>
                             </tr>
                         }
                     }
@@ -109,12 +113,6 @@
     </div>
    
 </div>
-
-
-
-
-
-
 
 <script>
 

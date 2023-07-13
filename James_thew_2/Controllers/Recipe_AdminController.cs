@@ -47,6 +47,23 @@ namespace James_thew_2.Controllers
             }
           
         }
+        public IActionResult del_cat(int data)
+        {
+            var rec =  db.Recipes.Where(x => x.RecipeId == data).SingleOrDefault();
+            ViewBag.ing = db.Ingredients.Where(x=>x.RecipeId == data).ToList();
+            ViewBag.steps = db.Steps.Where(x=>x.RecipeId == data).ToList();
+
+            return View(rec);
+        }
+
+        public IActionResult rec_confirm_delete(int data)
+        {
+            var res = db.Recipes.Find(data);
+            db.Recipes.Remove(res);
+            db.SaveChanges();
+            return RedirectToAction("Recipes");
+        }
+
         public IActionResult Recipes()
         {
             ViewBag.CategoryId = db.Categories
@@ -77,7 +94,7 @@ namespace James_thew_2.Controllers
                 
                 r.RecipeImage = "/img/recipes/" + file_name;
 
-                r.UserId =7;
+                r.UserId =1;
                 r.CreatedDate = DateTime.Now;
                 r.IsFree = Convert.ToBoolean(free_mem);
 
@@ -108,8 +125,8 @@ namespace James_thew_2.Controllers
         }
         public IActionResult Steps()
         {
-            ViewBag.RecipeId = db.Steps
-                .Select(c => new SelectListItem() { Text = c.Recipe.RecipeTitle, Value = c.RecipeId.ToString() })
+            ViewBag.RecipeId = db.Recipes
+                .Select(c => new SelectListItem() { Text = c.RecipeTitle, Value = c.RecipeId.ToString() })
                 .ToList();
 
             ViewBag.s_data = db.Steps.Include(x => x.Recipe).ToList();
