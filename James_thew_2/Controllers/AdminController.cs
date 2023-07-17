@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using James_thew_2.Models.DB_Models;
 using Microsoft.AspNetCore.Http;
+using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace James_thew_2.Controllers
 {
@@ -13,6 +15,8 @@ namespace James_thew_2.Controllers
         james_thew_recipesContext db = new james_thew_recipesContext();
         public IActionResult Index()
         {
+            //var affectedRows = db.Database.ExecuteSqlRaw("usp_CreateAuthor @AuthorName, @Email");
+
             return View();
         }
         public IActionResult login()

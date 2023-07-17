@@ -62,14 +62,24 @@
                 </thead>
                 <tbody>
                     @{
-                        foreach (var c in ing)
+
+                        if (ing.Count > 0)
                         {
-                            <tr>
-                                <td>@c.StepNumber</td>
-                                <td>@c.Description'</td>
-                                <td>@c.Recipe.RecipeTitle</td>
-                            </tr>
+                            foreach (var c in ing)
+                            {
+                                <tr>
+                                    <td>@c.StepNumber</td>
+                                    <td>@c.Description'</td>
+                                    <td>@c.Recipe.RecipeTitle</td>
+                                </tr>
+                            }
                         }
+                        else
+                        {
+
+                        }
+
+
                     }
                 </tbody>
             </table>
