@@ -127,7 +127,13 @@ a_password varchar(255)
 )
 
 
+insert into Categories Values( 'Dinner 1')
+
+insert into Recipes Values(1,'Recipes 1','/img/recipes/3611d40a-ddfa-4860-a63b-3cd33caff3adWhatsApp Image 2023-04-04 at 9.57.17 PM (1).jpeg',3001,1,'2023-08-01')
 
 insert into tbl_admin values('zain','zain@gmail.com','zain123')
 
-insert into Users values('fahad','fahad@gmail.com','fahad123','profile_pic','1','1',CURRENT_TIMESTAMP)
+insert into Users values('fahad','fahad@gmail.com','fahad123','/img/users/0bfa4dd9-7ad5-4eb3-81f8-56a36ad36245apple-iphone-x-pictures-5.png','1','1',CURRENT_TIMESTAMP)
+
+
+
