@@ -1,0 +1,56 @@
+﻿@model James_thew_2.Models.DB_Models.User
+@{
+    Layout = "user_layout";
+}
+
+@{
+    if (TempData.ContainsKey("image_error"))
+    {
+        <div class="text-danger mt-3 mb-3">
+            @TempData["image_error"]
+        </div>
+    }
+}
+
+
+
+<div class="row m-5">
+    <div class="col-12">
+        <div class="contact-form-area">
+            <form asp-action="Register" method="post" enctype="multipart/form-data" >
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <input type="text" class="form-control" asp-for="Username" id="name" placeholder="Name">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <input type="email" class="form-control" asp-for="Email" id="email" placeholder="E-mail">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" class="form-control" id="subject" asp-for="Password" placeholder="Password">
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <input type="file" class="form-control" id="name" name="profile_pic" placeholder="Name">
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <select class="form-control" name="me_type">
+                               <option value="0">Monthly</option>
+                               <option value="1">Yearly</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn delicious-btn mt-30" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+                        <script>
+
+    $(document).ready(function () {
+        $('#message').delay(3000).fadeOut();
+    });
+
+</script>

@@ -41,7 +41,9 @@ namespace James_thew_2.Controllers
             else
             {
                 db.Categories.Add(c);
+               
                 db.SaveChanges();
+             
                 TempData["cat_inserted"] = "Category Added";
                 return RedirectToAction("Categories");
             }

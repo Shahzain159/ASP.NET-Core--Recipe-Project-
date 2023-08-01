@@ -1,0 +1,190 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    Layout = "user_layout";
+
+    var recipe = (James_thew_2.Models.DB_Models.Recipe)ViewBag.recipe;
+    var steps = (List<James_thew_2.Models.DB_Models.Step>)ViewBag.steps;
+    var ing = (List<James_thew_2.Models.DB_Models.Ingredient>)ViewBag.ing;
+    //var comments = (List<James_thew_2.Models.DB_Models.Comment>)ViewBag.comm;
+    //var comments2 = (List<James_thew_2.Models.DB_Models.Comment>)ViewBag.comm2;
+
+    var comments2 = (List<comment_user>)ViewBag.comm;
+
+
+
+}
+ <div class="receipe-post-area section-padding-80">
+
+       
+        <!-- Receipe Slider -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="receipe-slider owl-carousel">
+                        <img src="@recipe.RecipeImage"  style="height:200px" alt="">
+                    <img src="@recipe.RecipeImage" style="height:200px" alt="">
+                    <img src="@recipe.RecipeImage" style="height:200px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipe Content Area -->
+        <div class="receipe-content-area">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                            <span>@recipe.CreatedDate</span>
+                            <h2>@recipe.RecipeTitle</h2>
+                            <div class="receipe-duration">
+                                <h6>Prep: 15 mins</h6>
+                                <h6>Cook: 30 mins</h6>
+                                <h6>Yields: 8 Servings</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="receipe-ratings text-right my-5">
+                            <div class="ratings">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <a href="#" class="btn delicious-btn">For Begginers</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                    
+                    @{
+                        foreach(var i in steps)
+                        {
+                            <!-- Single Preparation Step -->
+                            <div class="single-preparation-step d-flex">
+                                <h4>@i.StepNumber.</h4>
+                                <p>@i.Description. </p>
+                            </div>
+
+                        }
+                    }
+
+                </div>
+
+                <!-- Ingredients -->
+                <div class="col-12 col-lg-4">
+                    <div class="ingredients">
+                        <h4>Ingredients</h4>
+
+                        @{
+                            foreach(var i in ing)
+                            {
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
+                                    <label class="custom-control-label" for="customCheck8">@i.IngredientName </label>
+                                </div>
+
+
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-left">
+                        <h3>Leave a Comment</h3>
+                    </div>
+                </div>
+            </div>
+
+            <section style="background-color: #f7f6f6;">
+                <div class="container my-5 py-5 text-dark">
+
+                    @{
+                        foreach(var i in comments2)
+                        {
+
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-12 col-lg-10 col-xl-10">
+
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-start">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                 src="@i.c_profile" alt="avatar" width="60"
+                                                 height="40" />
+                                                <div class="w-100 ms-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                        <h6 class="text-primary fw-bold mb-0">
+                                                            <span class="text-success"> @i.c_name </span>
+                                                           @i.c_text
+                                                        </h6>
+                                                        <p class="mb-0">@i.c_date</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+
+                    
+                    
+                </div>
+            </section>
+
+
+
+                <div class="row">
+
+              
+
+
+
+
+            
+                @{
+                    if (Context.Session.GetString("login_user_id") == null)
+                    {
+                        <h3>Login to Leave Feedback</h3>
+                        <a class="btn delicious-btn mt-30" asp-action="Login" asp-controller="Home">Login</a>
+                    }
+                    else
+                    {
+                        <div class="col-12">
+                        <div class="contact-form-area">
+                            <form asp-action="post_comment" method="post">
+                                <div class="row">
+                                    <input type="hidden" value="@recipe.RecipeId" name="rec_id" />
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn delicious-btn mt-30" type="submit">Post Comments</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                
+                    }
+                }
+                
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "user_layout";
+}
+@{
+    if (TempData.ContainsKey("login_user_error"))
+    {
+        <div class="alert alert-danger w-75" id="message">
+            @TempData["login_user_error"]
+        </div>
+    }
+}
+<div class="row m-5">
+    <div class="col-12">
+        <div class="contact-form-area">
+            <form asp-action="Login" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <input type="text" class="form-control" name="email" id="name" placeholder="Email">
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <input type="text" class="form-control" name="password" id="name" placeholder="Password">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn delicious-btn mt-30" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $('#message').delay(3000).fadeOut();
+    });
+
+</script>

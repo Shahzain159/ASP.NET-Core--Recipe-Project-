@@ -29,13 +29,15 @@ namespace James_thew_2.Models.DB_Models
         public virtual DbSet<TblAdmin> TblAdmins { get; set; }
         public virtual DbSet<Tip> Tips { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.;Database=james_thew_recipes;User Id=sa;Password=aptech");
+                //optionsBuilder.UseSqlServer("Server=.;Database=james_thew_recipes;User Id=sa;Password=aptech");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-HMGIG1I\\SQLEXPRESS;Database=james_thew_recipes;Trusted_Connection=true;");
+
             }
         }
 
