@@ -1,0 +1,47 @@
+﻿@model List<James_thew_2.Models.DB_Models.User>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Categories Data</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>MemeberShip</th>
+                        <th>Profile Pic</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @{
+                        foreach (var c in Model)
+                        {
+                                        <tr>
+                                            <td>@c.Username</td>
+                                            <td>@c.Email</td>
+                                            @{
+                                                if (c.MembershipType == "0")
+                                                {
+                                                     <th>Monthly</th>
+                                                }
+                                                else
+                                                {
+                                                     <th>Yearly</th>
+                                                }
+                                            }
+                                            <td><img src="@c.ProfilePic" width="150px" height="180px"/></td>
+
+                                        </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

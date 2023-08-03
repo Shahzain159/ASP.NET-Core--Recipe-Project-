@@ -36,7 +36,7 @@ namespace James_thew_2.Models.DB_Models
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Server=.;Database=james_thew_recipes;User Id=sa;Password=aptech");
-                optionsBuilder.UseSqlServer("Server=DESKTOP-HMGIG1I\\SQLEXPRESS;Database=james_thew_recipes;Trusted_Connection=true;");
+                optionsBuilder.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=james_thew_recipes;Trusted_Connection=true;");
 
             }
         }
